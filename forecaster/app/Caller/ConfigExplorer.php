@@ -17,7 +17,7 @@ class ConfigExplorer implements FileConfig{
     private $completeConfig = true;
     private $DevConfigPath = "";
     private $configTarget = ["method","place"];
-    private $configList = ["weatherbit"];
+    private $configList = ["weatherbit","openweathermap"];
     private $d = "/";
     
     public $methodConfigList=[];

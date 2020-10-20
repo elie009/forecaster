@@ -33,33 +33,31 @@ class weather
                 
                 foreach($methodcall[0]["format"] as $key => $value){
                     
-                    
-                    if($value == "city"){
-                        $dataObj = $this->dataAlign($value, $attr[$value], $cityCode);
-                        
-                        array_push($composeapi,$dataObj);
+                    if($attr[$value]["isUse"] == "true"){
                         
                         
-                    }else if($value == "country"){
-                        $dataObj = $this->dataAlign($value, $attr[$value], $countryCode);
                         
-                        array_push($composeapi,$dataObj);
-                    }
-                    else if($value == "action"){
-                        $dataObj = $this->dataAlign($value, $attr[$value], $status);
-                        array_push($composeapi,$dataObj);
-                    }
-                    else{
-                        $dataObj = $attr[$value]["prefix"].$value."=".$attr[$value]["value"];
+                        if($value == "city"){
+                            $dataObj = $this->dataAlign($attr[$value], $cityCode);
+                            array_push($composeapi,$dataObj);
+                            
+                        }else if($value == "country"){
+                            $dataObj = $this->dataAlign($attr[$value], $countryCode);
+                            array_push($composeapi,$dataObj);
+                            
+                        }
+                        else{
+                            $dataObj = $this->dataAlign($attr[$value], $attr[$value]["value"]);
+                            array_push($composeapi,$dataObj);
+                        }
                         
                         
-                        array_push($composeapi,$dataObj);
+                        
                     }
                 }
                 
                 
                 $url = join("",$composeapi);
-                
                 $ch = curl_init();
                 curl_setopt($ch,CURLOPT_URL,$url);
                 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -89,19 +87,18 @@ class weather
     
     
     
-    private function dataAlign($breaker,$obj,$dataset){
-        $comman = $obj["isDisplay"] == "true"? $breaker:"";  
-        return $obj["prefix"].$comman.$obj["connector"].$dataset;
+    private function dataAlign($obj,$dataset){
+        $title = $obj["isShow"] == "true"? $obj["title"]:"";
+        
+        return $obj["prefix"].$title.$obj["connector"].$dataset;
     }
     
     public function getCurrentForecastByCountry($countryCode){
         
     }
-    
-    
+   
+
 }
-
-
 
 
 
