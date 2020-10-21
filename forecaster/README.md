@@ -1,3 +1,38 @@
+precondition
+PHP version = 7.4.11
+laravel version 8.x
+
+step 1:
+copy ForecastConfig to /forecaster/storage/app/public
+
+step 2:
+import sql dump
+
+step 3:
+execute comman: composer install
+
+step 4:
+If windows:
+copy .env.example .env
+
+step 5:
+Create the application key:
+php artisan key:generate
+
+step 6:
+Generate table:
+php artisan migrate
+
+step 7:
+Start the laravel server:
+php artisan serve
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -59,3 +94,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
