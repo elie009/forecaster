@@ -5,6 +5,7 @@ namespace App\Caller;
 use App\Caller\ConfigExplorer;
 use App\Traits\Util;
 
+use App\Models\Result;
 
 class weather
 {
@@ -90,6 +91,13 @@ class weather
             'templist'=>$tempAPI,
             
         );
+        
+        $res = new Result;
+        $res->temp=$temp;
+        $res->city=$cityCode;
+        $res->country=$countryCode;
+        $res->src=$countryCode;
+        $res->save();
      
         return $data;
        
