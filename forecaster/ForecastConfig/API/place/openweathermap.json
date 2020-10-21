@@ -1,0 +1,91 @@
+{"country":
+	[
+		{
+			"country_code":"DE",
+			"country_full": "Germany",
+			
+			"city":[
+				{
+					"city_id": "Rastede",
+					"city_name": "Rastede",
+					"state_code": "2850253",
+					"lat": 53.25,
+					"lon": 8.2
+					
+				},{
+					"city_id": "Rastatt",
+					"city_name": "Rastatt",
+					"state_code": "01",
+					"lat": 48.85851,
+					"lon": 8.20965
+				}	
+			]
+		},{
+			"country_code": "DZ",
+			"country_full": "Algeria",
+			
+			"city":[
+				{
+					"city_id": "Arris",
+					"city_name": "Arris",
+					"state_code": "03",
+					"lat": 35.25881,
+					"lon": 6.34706
+					
+				},{
+					"city_id": "Arhribs",
+					"city_name": "Arhribs",
+					"state_code": "14",
+					"lat": 36.79361,
+					"lon": 4.311
+				}	
+			]
+		},{
+			"country_code": "AM",
+			"country_full": "Armenia",
+			
+			"city":[
+				{
+					"city_id": "Gavarr",
+					"city_name": "Gavarr",
+					"state_code": "04",
+					"lat": 40.35398,
+					"lon": 45.12386
+					
+				},{
+					"city_id": "Hrazdan",
+					"city_name": "Hrazdan",
+					"state_code": "05",
+					"lat": 40.49748,
+					"lon": 44.7662
+				},{
+					"city_id": "Armavir",
+					"city_name": "Armavir",
+					"state_code": "03",
+					"lat": 40.15446,
+					"lon": 44.03815
+				}		
+			]
+		},{
+			"country_code":"PH",
+			"country_full": "Philippines",
+			
+			"city":[
+				{
+					"city_id": "Cebu City",
+					"city_name": "Cebu City",
+					"state_code": "1717512",
+					"lat": 10.31672,
+					"lon": 123.8907
+					
+				},{
+					"city_id": "Manila",
+					"city_name": "Manila",
+					"state_code": "NCR",
+					"lat": 14.6042,
+					"lon": 120.98
+				}	
+			]
+		}
+	]
+}
