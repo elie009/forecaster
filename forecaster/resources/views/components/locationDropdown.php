@@ -15,8 +15,8 @@
 				<label for="">City</label>
 				<span class="select control">
 					<select id="citycode" ng-change="pulldownCityChange()" ng-model="forecast.city">
-						<option value="" disabled="" selected="true" class="ng-binding">Select City</option>
-						<option style="color:gray" ng-repeat="citydata in cityList" value="[[citydata.city_id]]">[[citydata.city_name]]</option>
+						<option style="color:gray" value="" disabled="" selected="true" class="ng-binding">Select City</option>
+						<option style="color:gray" ng-repeat="citydata in citySelectList" value="[[citydata.city_id]]">[[citydata.city_name]]</option>
 					
 					</select>
 				</span>

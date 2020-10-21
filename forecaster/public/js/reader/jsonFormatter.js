@@ -19,15 +19,24 @@ function countryFormat(data){
 
 function cityFormat(data){
 	cityarray = []
-
-	$.each(data.country, function( index, value ) {
-		console.log(value)
-		dataCompose = {
-				name:value.city_name,
-				code: value.city_id,
-				countrycode:value.city
-		}
-		cityarray.push(dataCompose)
+	
+	
+	$.each(data.country, function( indexCountry, valueCountry ) {
+			
+			$.each(valueCountry, function( indexCity, valueCity ){
+				if(Array.isArray(valueCity)){
+					
+					$.each(valueCity, function( indexObj, valueObj ){
+						
+						dataCompose = {
+							name:valueObj.city_name,
+							code: valueObj.city_id,
+							countrycode:valueCountry.country_code
+						}
+						cityarray.push(dataCompose)
+					});
+				}
+			});
 	});
 	return cityarray
 }
