@@ -20,4 +20,10 @@ use Illuminate\Support\Facades\Route;
  
 
  Route::get('/', [HomePage::class, 'index']);
+ Route::get('/place', [HomePage::class, 'places']);
+
+ 
+ Route::post('/forecast', [HomePage::class, 'forecast']);
+ 
+ 
  
