@@ -38,12 +38,22 @@ class ConfigExplorer implements FileConfig{
                         $this->completeConfig = false;
                     
                     if($target == "method" && $this->completeConfig)
-                        array_push($this->methodConfigList,$path);
+                        
+                        if($target== "method"){
+                            $data = array(
+                                'title'=>$list,
+                                'path'=>$path
+                            );
+                            array_push($this->methodConfigList,$data);
+                        }
                     
                     if($target == "place" && $this->completeConfig)
                         array_push($this->placeConfigList,$path);
-                    
                 }
+                
+                
+                
+                
             }
             
         }catch (FileNotFoundException $e){

@@ -21,7 +21,11 @@ class weather
         $location = $caller->getConfigMethod();
         
         $avg = [];
-        foreach ($location as $path){
+        $tempAPI = [];
+        foreach ($location as $objData){
+            $path = $objData["path"];
+            $title = $objData["title"];
+            
             $Obj= (array)json_decode($caller->readFile($path),true);
             $dataObj = $Obj;
             
@@ -57,26 +61,33 @@ class weather
                 }
                 
                 
-                $url = join("",$composeapi);
+                
+                $url = str_replace(" ","%20", join("",$composeapi));
+                
+                error_log("Target URL: ".$url);
                 $ch = curl_init();
                 curl_setopt($ch,CURLOPT_URL,$url);
                 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                 $output=curl_exec($ch);
                 curl_close($ch);
-                
                 $outdata = (array)json_decode($output,true);
+                $temp = $this->jsonDataFinder($outdata, $methodcall[0]["targetResult"],$title);
                 
-                $temp = $this->jsonDataFinder($outdata, $methodcall[0]["targetResult"]);
+                $templist = array(
+                    'title'=>$title,
+                    'temp'=>$temp
+                );
                 
                 array_push($avg,$temp);
+                array_push($tempAPI,$templist);
             }
         }
         $data = array(
-            'temp'=>array_sum($avg)/count($avg),
+            'temp'=>  number_format(array_sum($avg)/count($avg),2),
             'day'=>date("l"),
             'daynum'=>date("d"),
             'month'=>date("F"),
-            'templist'=>$avg,
+            'templist'=>$tempAPI,
             
         );
      

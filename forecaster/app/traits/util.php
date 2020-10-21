@@ -9,8 +9,9 @@ trait Util{
     }
     
     
-    public function jsonDataFinder(array $arr, $key){
-        
+    public function jsonDataFinder(array $arr, $key,$title){
+      
+        error_log("key is :".$key);
         $pieces = strpos($key,'/')?(explode("/", $key)):$key;
         $arrResut=$arr;
         for ($x=0; count($pieces) > $x; $x++) {
