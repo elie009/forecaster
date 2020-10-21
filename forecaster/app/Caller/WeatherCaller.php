@@ -93,10 +93,10 @@ class weather
         );
         
         $res = new Result;
-        $res->temp=$temp;
+        $res->temp=number_format(array_sum($avg)/count($avg),2);
         $res->city=$cityCode;
+        $res->src=json_encode($tempAPI);
         $res->country=$countryCode;
-        $res->src=$countryCode;
         $res->save();
      
         return $data;
